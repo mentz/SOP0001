@@ -1,0 +1,4 @@
+MOV		AX,1	! traz o conteúdo da palavra 1 (0b00000000 00000001) para registrador AX
+MOVB	CL,8	! traz o conteúdo do byte 8 (0b00001000) para parte baixa do registrador CX
+SHL		AX,CL	! Faz um shift (move) para a esquerda o conteúdo do registrador AX -
+				!  em CL (8) unidades. O novo valor de AX é 256 (0b00000001 00000000).

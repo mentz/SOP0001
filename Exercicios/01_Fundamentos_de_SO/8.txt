@@ -1,0 +1,9 @@
+	MOV		CX,10
+	MOV		AX,1
+inicio:
+	SHL		AX,1
+	LOOP	inicio
+
+A linha 1 escreve 10 (0b00000000 00001010) no registrador CX
+A linha 2 escreve 1 (0b00000000 00000001) no registrador AX
+A linha 3 é uma 

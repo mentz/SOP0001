@@ -1,0 +1,22 @@
+Programa:
+
+100.7000 - read from kb
+101.2400 - save to N
+102.0001 - AC = 1
+103.2402 - save AC to D
+104.7000 - read from kb
+105.2401 - save to M
+106.6114 - goto print 0 if M is zero
+107.6117 - goto print N if M is zero
+108.4402 - M -= 1
+109.2401 - save M
+110.1400 - ream N
+111.3400 - N += N
+112.2400 - save N
+113.5107 - goto 107 (redo iteration)
+114.0000 - AC = 0
+115.8001 - print AC
+116.5119 - goto END
+117.1400 - read N
+118.8001 - print N
+119.9999 - END

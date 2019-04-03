@@ -1,0 +1,122 @@
+!  testa divisibilidade em Assembly as88
+!
+!  (c) rro, 2015-02-25
+!
+!  para montar o programa:
+!    $ ./as88 divis.s readnum.s
+
+_EXIT	   =	  1	! seven system call numbers
+_READ	   =	  3
+_WRITE	   =	  4
+_OPEN	   =	  5
+_CLOSE	   =	  6
+_CREAT	   =	  8
+_LSEEK	   =	 19
+_GETCHAR   =	117	! five system subroutine numbers
+_SPRINTF   =	121
+_PUTCHAR   =	122
+_SSCANF	   =	125
+_PRINTF	   =	127
+STDIN	   =	  0	! three initially opened file descriptors
+STDOUT	   =	  1
+STDERR	   =	  2
+
+.SECT .TEXT		! Definition of section header labels
+TxtSecHd:
+.SECT .DATA
+DatSecHd:
+.SECT .TEXT
+
+.SECT .TEXT
+
+start:
+	MOV	BP,SP		
+	PUSH	pr1		
+	PUSH	_PRINTF		
+	SYS			
+
+	CALL	readnum		
+	MOV	(x),AX		
+
+	PUSH	pr2		
+	PUSH	_PRINTF		
+	SYS			
+
+	CALL	readnum		
+	MOV	(y),AX		
+
+	MOV	CX,(x)		
+	MOV	DX,0		
+	MOV	AX,(y)		
+        IDIV    CX              
+        CMP     DX,0		
+        JNZ     divisivel       
+
+ndivisivel:
+	MOV	BX,str_nDIV	
+        JMP     imprime
+	
+divisivel: 
+	MOV    	BX,str_div	
+	
+imprime:
+	PUSH	pr3		
+	PUSH	(x)		
+	PUSH	BX		
+	PUSH	(y)		
+	PUSH	_PRINTF
+	SYS
+
+encerra:    
+	MOV	SP,BP		
+	PUSH	0		
+	PUSH	_EXIT		
+	SYS			
+fim:
+	
+.SECT	.DATA
+pr1:		.ASCIZ	'Entre o 1o numero: '
+pr2:		.ASCIZ	'Entre o 2o numero: '
+str_div:	.ASCIZ	'eh'
+str_nDIV:	.ASCIZ	'nao eh'
+pr3:		.ASCIZ	'\n%d %s divisivel por %d\n'
+x:		.WORD	0
+y:		.WORD	0
+
+.SECT	.BSS
+! subrotina para ler um numero da entrada padrao em as88
+! - numero lido e' retornado em AX
+! - nao e' verificado se o numero lido cabe em 16 bits
+!
+! (c) rro, 2015-02-24
+
+_RNBSIZ=8			! tamanho do buffer de leitura
+
+.SECT	.TEXT
+	
+readnum:
+	PUSH	BP		! salva BP
+	MOV	BP,SP		! salva SP em BP
+	PUSH	_RNBSIZ		! no. de bytes a ler
+	PUSH	_rnbuf		! endereco da string
+	PUSH	STDIN		! arquivo de entrada
+	PUSH	_READ		! no. da syscall
+	SYS			! executa syscall 
+
+	PUSH	_rnum		! onde sera' armazenado o numero
+	PUSH	_rnssf		! string de formato
+	PUSH	_rnbuf		! string lida
+	PUSH	_SSCANF
+	SYS
+
+	MOV	AX,(_rnum)	! guarda o numero em AX
+	MOV	SP,BP		! limpa a pilha
+	POP	BP		! restaura BP
+	RET			! encerra funcao
+	
+.SECT	.DATA
+_rnbuf:	.SPACE	_RNBSIZ
+_rnssf:	.ASCIZ	'%d'
+_rnum:	.WORD	0
+	
+.SECT	.BSS

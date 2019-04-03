@@ -1,0 +1,11 @@
+Arquivos para o trabalho de transações bancárias com fila de requisições.
+
+Coloque seu código em 'tbanc.c' e use o Makefile para compilar (basta 
+digitar 'make').
+
+O subdiretório 'exemplos' contém exemplos de arquivos de entrada e as 
+saídas correspondentes do programa:
+
+  - 'contasN', 'transN': arquivos de entrada
+  - 'saidaN': saída correspondente
+

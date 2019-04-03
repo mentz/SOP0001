@@ -1,0 +1,13 @@
+Saldos iniciais:
+conta 1: num=1234, saldo=1000.00
+conta 2: num=2468, saldo=1234.46
+conta 3: num=1357, saldo=400.00
+conta 4: num=9876, saldo=10.00
+conta 5: num=6789, saldo=5.00
+Transacoes processadas: 10	Transacoes bem sucedidas: 9 (90.00%)
+Saldos finais:
+conta 1: num=1234, saldo=501.00
+conta 2: num=2468, saldo=634.46
+conta 3: num=1357, saldo=1401.00
+conta 4: num=9876, saldo=10.00
+conta 5: num=6789, saldo=103.00

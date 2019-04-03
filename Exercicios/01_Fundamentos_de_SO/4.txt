@@ -1,0 +1,18 @@
+Código para contador de 0 até n:
+
+100.0001 - AC = 1
+101.2400 - save AC to d = 1
+102.0000 - AC = 0
+103.2401 - save AC to n = 0
+104.7000 - read m from kb
+105.2402 - save m
+106.1401 - read n from mem
+107.8001 - print n
+108.1402 - read m
+109.4401 - AC = m - n
+110.6115 - jmp if AC==0 to end
+111.1401 - read n from mem
+112.3400 - AC = n + 1
+113.2401 - save AC to n
+114.5106 - jmp to 106 (loop incremental)
+115.9999 - END

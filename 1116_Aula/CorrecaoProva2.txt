@@ -1,0 +1,41 @@
+1) (1,0) CORRETO (1,0)
+Não. Round-robin é "justo", cada processo é executado por um tempo predeterminado e então outro processo é executado.
+
+2) (1,0) CORRETO (1,0)
+Muita coisa pra escrever.
+
+3) (3,0) PARCIAL (2,65)
+a)  i. 2^28 bytes = 256MB.										(CORRETO)
+   ii. 2^30 bytes = 1024MB.										(CORRETO)
+  iii. 2^30 / 2^13 = 2^17 = 131.072 entradas.					(CORRETO)
+   iv. 131.072 * (15+6 bits) = 2.752.512 bits = 344.064 bytes.	(PARCIAL)
+    v. 256MB / 32B = 8Mb = 1MB (unidade de alocação pesa 1 bit) (PARCIAL)
+
+b) t_hit = 4+80 = 84; t_miss = 4+80+80 = 164;
+   acerto = h*t_hit + (1-h)*t_miss = 92
+   => 84*h + (1-h)*164 = 92
+   => -80*h = -72 => h = 72/80 = 0,9.
+   Taxa de acerto da TLB: 90%.									(CORRETO)
+
+4) (3,0) PARCIAL (2,5) (OBRIGADO PROFESSOR)
+a) (26) -> (28) tanto na CPU quanto no Disco.					(PARCIAL)
+b) 36-6 / 36 = 83,3% CPU
+   36-12 / 36 = 66,7% Disco										(PARCIAL)
+c) Retorno médio: 18,5 u.t.
+   Espera média: 5 u.t.											(PARCIAL)
+d) 4 proc / 3,6 s = 1.11 proc/s									(PARCIAL)
+
+5) (2,0) PARCIAL (1,8)
+a)  i. MRU:  4 e 0, nessa ordem.
+   ii. FIFO: 2 e 3, nessa ordem.								(CORRETO)
+
+b) /-------+---+-----+---+-------\
+   |  E.L. | p |  d  | f |  E.F. |
+   +=======+===+=====+===+=======+
+   | 10640 | 5 | 400 | 7 | 14736 |
+   +-------+---+-----+---+-------+
+   | 12908 | 6 | 620 | 5 | 10860 | <- erro no E.F. (5*1024 -> 5*2048)
+   \-------+---+-----+---+-------/								(PARCIAL)
+
+
+Nota final: 8.95 -> 9.0 (thank mr precisão)

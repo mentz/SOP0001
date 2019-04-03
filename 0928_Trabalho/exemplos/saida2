@@ -1,0 +1,13 @@
+Saldos iniciais:
+conta 1: num=1, saldo=1000.00
+conta 2: num=2, saldo=1000.00
+conta 3: num=3, saldo=1000.00
+conta 4: num=4, saldo=1000.00
+conta 5: num=5, saldo=1000.00
+Transacoes processadas: 50	Transacoes bem sucedidas: 50 (100.00%)
+Saldos finais:
+conta 1: num=1, saldo=1200.00
+conta 2: num=2, saldo=950.00
+conta 3: num=3, saldo=950.00
+conta 4: num=4, saldo=950.00
+conta 5: num=5, saldo=950.00

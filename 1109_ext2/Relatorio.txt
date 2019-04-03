@@ -1,0 +1,140 @@
+Lucas Litter Mentz
+Atividade SOP0001 - 2017/11/09
+
+Atividades sobre ext2
+
+
+1)
+Número de blocos: 24576
+Número de inodes: 12288
+Tamanho de bloco: 2048 bytes
+
+
+2)
+Tem dois grupos de blocos, sendo que o primeiro está mais ocupado, com 450 blocos em uso.
+O segundo grupo possui 411 blocos em uso.
+
+
+3)
+Espaço disponível: 23715 blocos, ou 48.568.320 bytes (46.3 MB).
+Podem ser criados até 11857 arquivos (1 inode e 1 bloco cada).
+
+
+4)
+47681 bytes de dados ou 25 blocos, equivalente a 51200 bytes.
+12 blocos de indireção simples (0 a 11), 12 de indireção dupla (12 a 23) e um de indireção (indireciona (?) os últimos 12 blocos).
+
+
+5)
+Hexa:
+00000000  41 44 56 45 4e 54 55 52  45 20 49 49 2e 20 54 48  |ADVENTURE II. TH|
+00000010  45 20 52 45 44 2d 48 45  41 44 45 44 20 4c 45 41  |E RED-HEADED LEA|
+00000020  47 55 45 0a 0a 49 20 68  61 64 20 63 61 6c 6c 65  |GUE..I had calle|
+00000030  64 20 75 70 6f 6e 20 6d  79 20 66 72 69 65 6e 64  |d upon my friend|
+00000040  2c 20 4d 72 2e 20 53 68  65 72 6c 6f 63 6b 20 48  |, Mr. Sherlock H|
+00000050  6f 6c 6d 65 73 2c 20 6f  6e 65 20 64 61 79 20 69  |olmes, one day i|
+00000060  6e 20 74 68 65 0a 61 75  74 75 6d 6e 20 6f 66 20  |n the.autumn of |
+00000070  6c 61 73 74 20 79 65 61  72 20 61 6e 64 20 66 6f  |last year and fo|
+00000080  75 6e 64 20 68 69 6d 20  69 6e 20 64 65 65 70 20  |und him in deep |
+00000090  63 6f 6e 76 65 72 73 61  74 69 6f 6e 20 77 69 74  |conversation wit|
+000000a0  68 20 61 0a 76 65 72 79  20 73 74 6f 75 74 2c 20  |h a.very stout, |
+000000b0  66 6c 6f 72 69 64 2d 66  61 63 65 64 2c 20 65 6c  |florid-faced, el|
+000000c0  64 65 72 6c 79 20 67 65  6e 74 6c 65 6d 61 6e 20  |derly gentleman |
+000000d0  77 69 74 68 20 66 69 65  72 79 20 72 65 64 20 68  |with fiery red h|
+000000e0  61 69 72 2e 0a 57 69 74  68 20 61 6e 20 61 70 6f  |air..With an apo|
+000000f0  6c 6f 67 79 20 66 6f 72  20 6d 79 20 69 6e 74 72  |logy for my intr|
+00000100  75 73 69 6f 6e 2c 20 49  20 77 61 73 20 61 62 6f  |usion, I was abo|
+00000110  75 74 20 74 6f 20 77 69  74 68 64 72 61 77 20 77  |ut to withdraw w|
+00000120  68 65 6e 0a 48 6f 6c 6d  65 73 20 70 75 6c 6c 65  |hen.Holmes pulle|
+00000130  64 20 6d 65 20 61 62 72  75 70 74 6c 79 20 69 6e  |d me abruptly in|
+00000140  74 6f 20 74 68 65 20 72  6f 6f 6d 20 61 6e 64 20  |to the room and |
+00000150  63 6c 6f 73 65 64 20 74  68 65 20 64 6f 6f 72 0a  |closed the door.|
+00000160  62 65 68 69 6e 64 20 6d  65 2e 0a 00 00 00 00 00  |behind me.......|
+00000170  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+*
+00000800
+
+ASCII:
+ADVENTURE II. THE RED-HEADED LEAGUE
+
+I had called upon my friend, Mr. Sherlock Holmes, one day in the
+autumn of last year and found him in deep conversation with a
+very stout, florid-faced, elderly gentleman with fiery red hair.
+With an apology for my intrusion, I was about to withdraw when
+Holmes pulled me abruptly into the room and closed the door
+behind me.
+
+
+6)
+2 blocos de dados:
+8: 512
+9: 513
+
+
+7)
+Com a remoção do arquivo beta o conteúdo do diretório teve sua contagem reduzida em 1 e a linha onde antes tinha o arquivo 'beta' foi removida.
+
+Antes:
+root-dump:
+    #  inode reclen name_len file_type  name
+  000:     2     12        1    2/dir   .
+  001:     2     12        2    2/dir   ..
+  002:    11     20       10    2/dir   lost+found
+  003:    12     12        4    1/reg   alfa
+  004:    13     12        4    1/reg   beta
+  005:    14     12        4    1/reg   gama
+  006:    15     16        5    1/reg   delta
+  007:    16     16        7    7/syml  epsilon
+  008:    13     12        4    1/reg   zeta
+  009:    17     12        3    5/fifo  eta
+  010:    18     16        5    3/char  theta
+  011:    19   1896        4    4/blk   iota
+
+Depois:
+root-dump-after:
+    #  inode reclen name_len file_type  name
+  000:     2     12        1    2/dir   .
+  001:     2     12        2    2/dir   ..
+  002:    11     20       10    2/dir   lost+found
+  003:    12     24        4    1/reg   alfa
+  004:    14     12        4    1/reg   gama
+  005:    15     16        5    1/reg   delta
+  006:    16     16        7    7/syml  epsilon
+  007:    13     12        4    1/reg   zeta
+  008:    17     12        3    5/fifo  eta
+  009:    18     16        5    3/char  theta
+  010:    19   1896        4    4/blk   iota
+
+8)
+Recuperado com:
+debugfs:  ln <13> beta
+
+Feito isso, rodado 'fsck.ext2 -f disk2.img' sugeriu limpar o inode 13 e removeu os dois arquivos.
+
+Iniciando novamente com a imagem limpa, removi o arquivo beta com 'debugfs:  rm beta'.
+Fiz o comando 'debugfs:  ln <13> beta'.
+Encerrei o debugfs e fiz novamente o comando de reparação do sistema de arquivos 'fsck.ext2 -f disk2.img', que sugeriu alterar o ref count de 1 para 2 no inode 13.
+
+Procedimento completo:
+-------------
+1109_ext2 $ debugfs disk2.img -w  
+debugfs 1.43.7 (16-Oct-2017)
+debugfs:  rm beta
+debugfs:  ls -l
+debugfs:  ln <13> beta
+debugfs:  ls -l
+debugfs:  q
+1109_ext2 $ fsck.ext2 -f disk2.img
+e2fsck 1.43.7 (16-Oct-2017)
+Pass 1: Checking inodes, blocks, and sizes
+Pass 2: Checking directory structure
+Pass 3: Checking directory connectivity
+Pass 4: Checking reference counts
+Inode 13 ref count is 1, should be 2.  Fix<y>? yes
+Pass 5: Checking group summary information
+
+disk2.img: ***** FILE SYSTEM WAS MODIFIED *****
+disk2.img: 19/12288 files (5.3% non-contiguous), 861/24576 blocks
+-------------
+
+O procedimento funcionou pois aparentemente o mesmo inode é usado para dois arquivos, dessa forma a remoção de beta não causou a deleção do inode 13, somente sua atualização para refletir que agora estava linkado em somente um arquivo. A nova linkagem para o arquivo beta foi bem sucedida porém não atualizou o inode para refletir a nova contagem de links, sendo isso corrigido no reparo do sistema de arquivos.

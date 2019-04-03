@@ -1,0 +1,7 @@
+a) 204, 210.
+b)
+	I1) DX recebe o valor 40 = 0b00000000 00101000
+	I2) AX recebe o valor guardado em BX, 20 ou 0b00000000 00010100
+	I3) AX recebe o valor indireto de BX, ou seja, (20) ou o valor guardado no endereço 1020.
+	I4) Soma o valor de BX com CX, ou seja, 20 + 30 = 50 ou 0b00000000 00110010.
+
